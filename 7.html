@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //13... stone paper and scissor
+
+        function playgame(playerchoice){
+            const choices=['stone','paper','scissor']
+            const computerChoice=choices[Math.floor(Math.random()*3)];
+
+            console.log(`palyer :${playerchoice}`);
+            console.log(`computer :${computerChoice}`);
+            if(playerchoice==computerChoice){
+            return "It's a Tie";
+            }
+
+            if((playerchoice=='stone' && computerChoice=='scissor')||(playerchoice=='paper' && computerChoice=='stone')||(playerchoice=='scissor' && computerChoice=='paper')){
+                return "you win"
+            }
+            else{
+                return "you lose"
+            }
+        }
+        console.log(playgame("stone"));
+        console.log(playgame("paper"));
+        console.log(playgame("scissor"));
+
+        //14.. remove characters
+        
+        let str="hello";
+        //to replace one character
+        str=str.replace("l","");
+        console.log(str);
+
+        //to remove all occurance
+        str=str.replace(/l/g,"");
+        console.log(str);
+
+        //remove character at specific index
+        function removeCharAt(str,index){
+            return str.slice(0,index)+str.slice(index+1);
+        }
+        console.log(removeCharAt("hello",1));
+
+        //remove all non alphabetic characters
+        let str1="He110 W0r1d";
+        str1=str1.replace(/[^a-zA-Z]/g,"");
+        console.log(str1);
+
+        //remove whitespace
+        let str2="Hello world";
+        str2=str2.replace(/\s/g,"");
+        console.log(str2);
+
+        //remove multiple specific characters
+        let str3="apple banana";
+        str3=str3.replace(/[aeo]/g,"");
+        console.log(str3);
+
+
+
+    </script>
+    
+</body>
+</html>

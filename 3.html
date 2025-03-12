@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        const planets=[
+            {id:1, name:"Mercury"},
+            {id:2, name:"venus"},
+            {id:3, name:"earth"},
+            {id:4, name:"mars"},
+            
+        ];
+        //.find() function
+        function getId(plantname){
+            const planet=planets.find(p=>p.name.toLowerCase()===plantname.toLowerCase());
+            return planet?planet.id:"planet not found";
+        }
+
+        console.log(getId("Earth"));
+
+        // for loop
+        function getId1(plantname){
+            for(let i=0;i<planets.length;i++){
+                if(planets[i].name.toLowerCase()==plantname.toLowerCase()){
+                    return planets[i].id;
+                }
+            }
+            return "planet not found"
+        }
+
+        console.log(getId1("mars"));
+
+        //using .map() and .indexOf()
+        const planetNames=planets.map(p=>p.name.toLowerCase());
+        const planetIds=planets.map(p=>p.id);
+
+        function getId2(plantname){
+            const index=planetNames.indexOf(plantname.toLowerCase());
+            return index!= -1?planetIds[index]:"not found";
+        }
+
+        console.log(getId2("venus"));
+
+
+        //using an object instead of an array
+
+        const planetmap={
+            Mercury:1,
+            Venus:2,
+            Earth:3,
+            Mars:4
+
+        };
+
+        function getId3(plantname){
+            return planetmap[plantname] || "not found"
+        }
+
+        console.log(getId3("shreya"));
+        
+    </script>
+
+    
+</body>
+</html>

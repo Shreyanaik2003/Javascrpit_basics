@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//7..secret message
+
+        function encodeMessage(message, shift=3){
+            return message.split("")
+            .map(char=>String.fromCharCode(char.charCodeAt(0)+shift))
+            .join("");
+        }
+        function decodeMessage(message, shift=3){
+            return message.split("")
+            .map(char=>String.fromCharCode(char.charCodeAt(0)-shift))
+            .join("");
+        }
+
+        const secret="Hello, world";
+        const encoded=encodeMessage(secret);
+        console.log("encoded :",encoded);
+        const decoded=decodeMessage(encoded);
+        console.log("decoded : ",decoded);
+
+        // map(char => String.fromCharCode(char.charCodeAt(0) + shift))
+        // char.charCodeAt(0) → Converts each character to its ASCII code.
+        // + shift → Moves the ASCII code forward by shift (default: 3).
+        // String.fromCharCode(...) → Converts new ASCII code back to a character.
+
+
+
+// 8.. divisible by x and y
+
+    function isDivisible(n,x,y){
+        return n%x==0 && n%y==0;
+    }
+    console.log(isDivisible(10,2,5));
+    console.log(isDivisible(15,2,5));
+
+    //Finding numbers divisible by x and y in range
+
+    function FindDivisibleInRange(start,end,x,y){
+        let result=[];
+        for(let i=start;i<=end;i++){
+            if(isDivisible(i,x,y)){
+                result.push(i);
+            }
+        }
+        return result;
+    }
+    console.log(FindDivisibleInRange(1,50,3,7));
+
+// 9..return negative
+
+    function makenegative(n){
+        return n>0?-n:n;
+    }
+    console.log(makenegative(5));
+    console.log(makenegative(-3));
+
+//10..smallest integer in a array
+    //min function
+    function findSmallest(arr){
+        return Math.min(...arr);
+
+    }
+    console.log(findSmallest([4,2,8,-3,9]));
+   // ...numbers → expands [3, 1, 7, -2] into 3, 1, 7, -2
+
+   //reduce() method
+   function findSmallest1(arr){
+    return arr.reduce((min,num)=>num<min?num:min);
+   }
+   console.log(findSmallest1([3,7,9,4,2]));
+
+   //for loop
+   function findSmallest2(arr) {
+    let min = arr[0]; 
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] < min) {
+            min = arr[i]; 
+        }
+    }
+    return min;
+    }
+
+    console.log(findSmallest2([6, 2, 9, -4, 1]));
+
+// 11.. summation
+
+    function summation(n){
+        return (n*(n+1))/2;
+    }
+    console.log(summation(5));
+
+    function summation(n) {
+    let sum = 0;
+    for (let i = 1; i <= n; i++) {
+        sum += i;
+    }
+    return sum;
+    }
+
+    console.log(summation(10)); 
+
+// 12... average
+
+    //reduce
+    function average(arr){
+        return arr.length==0?0:arr.reduce((sum,num)=>sum+num,0)/arr.length;
+    }
+
+    console.log(average([4, 8, 15, 16, 23, 42]));
+    console.log(average([])); 
+    
+    //for loop
+    function average(arr) {
+    if (arr.length === 0) return 0;
+    
+    let sum = 0;
+    for (let num of arr) {
+        sum += num;
+    }
+    
+    return sum / arr.length;
+    }
+
+    console.log(average([1, 2, 3, 4, 5]));
+    </script>
+    
+</body>
+</html>

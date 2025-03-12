@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // modulus and ternary operator
+        function evenOdd(num){
+            return num%2==0?"even":"odd";
+        }
+        console.log(evenOdd(8));
+
+        //floor function
+        function evenOdd1(num){
+            return Math.floor(num/2)*2==num;
+            
+
+        }
+        console.log(evenOdd1(9));
+
+
+        //5. counting sheep in a array
+        function countsheep(sheeparray){
+            return sheeparray.filter(Boolean).length;
+
+        }
+        const sheep=[true,true,false,true,false,true,true,false,true];
+        console.log(countsheep(sheep));
+//         filter(Boolean) removes false, null, undefined, and 0 values.
+// .length gives the count of remaining true values.
+
+
+
+    // 6..vowel count
+
+    //using for loop
+    function countvowels(str){
+        let count=0;
+        const vowels='aeiouAEIOU';
+        for(let char of str){
+            if(vowels.includes(char)){
+                count++;
+
+            }
+        }
+        return count;
+    }
+    console.log(countvowels(" shreya vinayak naik"));
+
+    //regular expression
+    function countvowels2(str){
+        const matches=str.match(/[aeiou]/gi);
+        return matches?matches.length:0;
+    }
+    console.log(countvowels2("javascript"));
+
+//     /[aeiou]/gi → Finds all vowels (i for case-insensitive, g for global search).
+// match() returns an array of vowels or null if none exist.
+
+
+
+    </script>
+    
+</body>
+</html>
