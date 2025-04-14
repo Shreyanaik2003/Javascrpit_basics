@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //string to array
+        let str="hello world";
+        let arr=[...str];
+        let arr1=str.split("");
+        let arr2=str.split(" ");
+        console.log(arr);
+        console.log(arr1);
+        console.log(arr2);
+
+        //remove spaces
+        let str1="  Hello world  ";
+        let result1=str1.replace(/\s/g,"");//removes all spaces
+        console.log(result1);
+        let result2=str1.trim();//removes space from start and end
+        console.log(result2);
+        let result3=str1.split(" ").join("");//splits by space and joins without space
+        console.log(result3);
+        let result4=str1.replace(/\s+/g," ");//removes multiple spaces with single space
+        console.log(result4);
+
+        //using map to double the value of array
+        let numbers=[1,2,3,4,5];
+        let double=numbers.map(num=>num*2);
+        console.log(double);
+
+        //array addition
+        {
+            let arr1=[1,2,3];
+            let arr2=[4,5,6];
+            let sumArray=[];
+
+            for(let i=0;i<arr1.length;i++){
+                sumArray.push(arr1[i]+arr2[i]);
+                //sumArray[i]=(arr1[i]+arr2[i]);
+            }
+            console.log(sumArray);
+
+            let sumArray1=arr1.map((num,index)=>num+arr2[index]);
+            //let sumArray1=arr1.map((num,index)=>num+(arr2[index]||0));
+            console.log(sumArray1);
+        }
+
+        //human years to cat and dog years
+        function human(humanyears){
+            let catyears,dogyears;
+            if(humanyears==1){
+                catyears=15;
+                dogyears=10.5;
+            }else if(humanyears==2){
+                catyears=15+9;
+                dogyears=10.5+10.5;
+            }else{
+                catyears=15+9+(humanyears-2)*4;
+                dogyears=10.5+10.5+(humanyears-2)*4;
+            }
+            return [catyears,dogyears];
+        }
+        console.log(human(3));
+        console.log(human(1));
+
+        //centuary from year
+
+        function cent(year){
+            let cent=Math.ceil(year/100);
+            return cent;
+    }
+    console.log(cent(1705));
+    console.log(cent(1900));
+    </script>
+</body>
+</html>
